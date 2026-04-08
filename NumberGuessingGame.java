@@ -9,10 +9,10 @@ public class NumberGuessingGame {
 
         int count = 0;
         
+        System.out.println("Enter your number (1-100)");
         while(true) {
 
             count += 1;
-            System.out.println("Enter your number (1-100)");
             // System.out.println("random Number is " +randomNum);
 
         int playerGuess = scanner.nextInt();
@@ -31,6 +31,8 @@ public class NumberGuessingGame {
     }
     if (count >= 5) {
         System.out.println("you have foiled your attempts");
+
     }
+    scanner.close();
     }
 }
