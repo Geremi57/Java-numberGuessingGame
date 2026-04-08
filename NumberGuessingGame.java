@@ -14,6 +14,7 @@ public class NumberGuessingGame {
         while(count < 5) {
 
             count += 1;
+            int remaining = 5 - count;
             // System.out.println("random Number is " +randomNum);
 
         int playerGuess = scanner.nextInt();
@@ -25,10 +26,12 @@ public class NumberGuessingGame {
         }
         else if(randomNum > playerGuess) {
             System.out.println("number is higher try again");
+            System.out.println("you have "+remaining +" tries");
 
         }
         else {
             System.out.println("number is lower try again");
+            System.out.println("you have "+remaining +"tries");
         }
     }
     if (count >= 5) {
