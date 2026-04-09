@@ -1,56 +1,76 @@
-import java.util.Random;
 import java.util.Scanner;
+import java.util.Random;
 
-public class NumberGuessingGame {
+public class MyProgram {
+  public static void main(String[] args) {
+    Random rand = new Random();
+    Scanner scanner = new Scanner(System.in);
+    Scanner range = new Scanner(System.in);
 
-    public static void main(String[] args) {
-
-        Random rand = new Random();
-        Scanner scanner = new Scanner(System.in);
-        Scanner range = new Scanner(System.in);
-
-        System.out.println("Enter the range you want");
-        System.out.println();
-
-        int rangeNum = range.nextInt();
-        int randomNum = rand.nextInt(rangeNum) + 1;
-
-        int count = 0;
+int cont = 505;
+int stop = 404;
+    System.out.println("enter the range you want");
+    int rangeNum = range.nextInt();
+    
+    //   if (scanner.hasNextInt()){
+    //    rangeNum = range.nextInt();
         
-        System.out.println("Enter your number (1-100)");
-        System.out.println();
-        while(count < 5) {
+    // }
+    // else{
+    //     System.out.println("Please enter a valid number");
+    // }
+    
+   
+    int randomNum = rand.nextInt(rangeNum) + 1;
 
-            count += 1;
-            int remaining = 5 - count;
-            // System.out.println("random Number is " +randomNum);
+    System.out.println("Enter your number (1-" +rangeNum +")");
 
-        int playerGuess = scanner.nextInt();
+    int count = 1;
 
-        if (playerGuess == randomNum) {
-            System.out.println("Correct! you win!");
-            System.out.println();
-            System.out.println("it took you "+ count +" tries");
-            break;
-        }
-        else if(randomNum > playerGuess) {
-            System.out.println();
-            System.out.println("number is higher try again");
-            System.out.println();
-            System.out.println("you have "+remaining +" tries");
-
-        }
-        else {
-            System.out.println("number is lower try again");
-            System.out.println("you have "+remaining +"tries");
-        }
+    
+    
+    while(count < 6) {
+      count += 1;
+      int remaining = 7 - count;
+      
+            int playerGuess = scanner.nextInt();
+      
+      if (randomNum == playerGuess){
+        System.out.println("You are spot on you got it right");
+        System.out.println("Your Score is "+remaining);
+        System.out.println("to play again enter: 505");
+        System.out.println("to quit the game enter: "+stop);
+      }
+      if (playerGuess == cont) {
+        randomNum = rand.nextInt(rangeNum) + 1;
+        count = 1;
+        System.out.println("the count is "+count);
+      }
+      else if (playerGuess == stop){
+      System.out.println("you have quit the game");
+      break;
+      }
+      else if (randomNum < playerGuess){
+        System.out.println("the number is below your number");
+        System.out.println("You have " +remaining +" tries remaining");
+      }
+      else{
+        System.out.println("the number is above your number");
+        System.out.println("You have " +remaining +" tries remaining");
+      }
+      
     }
-    if (count >= 5) {
-        System.out.println("you have foiled your attempts");
-        System.out.println();
-        System.out.println("the number was "+randomNum);
 
+     if (count >= 6){
+        System.out.println("no more moves");
+       System.out.println("to play again enter: 505");
+       int playerGuess = scanner.nextInt();
+       if (playerGuess == cont){
+         count = 1;
+         System.out.println("the count is "+count);
+       }
     }
+   
     scanner.close();
-    }
+  }
 }
